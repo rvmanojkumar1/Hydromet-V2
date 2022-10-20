@@ -1,0 +1,4 @@
+SF1, Battery, Stage, Discharge, Battery Change(1 hrs), c-Flood Stage, c-River System, c-Operator;
+SF15, Battery, Stage, Discharge, Battery Change(1 hrs), c-Flood Stage, c-River System, c-Operator;
+SF7, Battery, Stage, Discharge, Battery Change(1 hrs), c-Flood Stage, c-River System, c-Operator;
+SF10, Battery, Stage, Discharge, Battery Change(1 hrs), c-Flood Stage, c-River System, c-Operator;

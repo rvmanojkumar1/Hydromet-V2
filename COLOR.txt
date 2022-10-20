@@ -1,0 +1,11 @@
+SF15 Pinkard Creek,Stage,<=,0.1,blue,0,None,>=,0.1,brown,1,Monitor Stage,>=,1.5,orange,1,Warning Stage,>=,2.0,red,1,Flood Stage
+SF25 Bangor Canal,Stage,<,30,blue,0,None,>,30,brown,1,Monitor Stage,>,35,orange,1,Warning Stage,>,50,red,1,Flood Stage
+SF19 Ponderosa Reservoir,Stage,<,50,blue,0,None,>,50,brown,1,Monitor Stage,>,75,orange,1,Warning Stage,>,90,red,1,Flood Stage
+SF19 Ponderosa Reservoir,Battery,<=,50,blue,0,None,>,50,brown,1,Monitor Stage,>,75,orange,1,Warning Stage,>,90,red,1,Flood Stage
+WD6 Forbestown Ditch at TP,Stage,<,70,blue,0,None,>,70,brown,1,Monitor Stage,>,165,orange,1,Warning Stage,>,450,red,1,Flood Stage
+SF1 Upstream Little Grass Valley Reservoir,Stage,<,1,blue,0,None,>,1,brown,1,Monitor Stage,>,2,orange,1,Warning Stage,>,3,red,1,Flood Stage
+SF5 South Fork Div Downstream,Stage,<,5,blue,0,None,>,5,brown,1,Monitor Stage,>,5.5,orange,1,Warning Stage,>,6,red,1,Flood Stage
+SF7 Lost Creek upstream Sly Creek Reservoir,Stage,<,1.78,blue,0,None,>=,1.78,brown,1,Monitor Stage,>,1.80,orange,1,Warning Stage,>,1.82,red,1,Flood Stage
+SF10 Downstream Slate Creek Div,Stage,<,1,blue,0,None,>,1,grey,1,Low Level Stage,>,2,orange,1,Warning Stage,>,4,red,1,Flood Stage
+Elsman,Stage,<,1040,blue,0,None,>,1040,green,1,Monitor Stage,>,1047,orange,1,Warning Stage,>,1055,red,1,Flood Stage
+Elsman,Storage,<,481,blue,0,None,>,481,green,1,Monitor Stage,>,641,orange,1,Warning Stage,>,701,red,1,Flood Stage

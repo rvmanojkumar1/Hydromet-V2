@@ -1,0 +1,3 @@
+SF2 Little Grass Reservoir,Storage;
+SF12 Lost Creek Reservoir,Storage;
+SF26 Miners Ranch Reservoir,Storage;

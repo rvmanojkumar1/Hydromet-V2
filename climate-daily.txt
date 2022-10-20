@@ -1,0 +1,7 @@
+Air Temp, Value - Min, Max, Avg
+Wind Speed, Value - Min, Max, Avg
+Wind Direction, Value - Min, Max, Avg
+Solar Radiation, Value - Min,Max,Avg
+Air Temp F, Value - Min,Max,Avg
+Rainfall Annual, Difference - Min, Max, Avg, Total
+Rain, Difference - Min, Max, Avg, Total

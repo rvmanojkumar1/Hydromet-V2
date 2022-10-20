@@ -1,0 +1,51 @@
+﻿@font-face {
+    font-family:Oxfam-TSTARPRO-Regular;
+    src: url('../fonts/Oxfam-TSTARPRO-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family:Oxfam-TSTARPRO-Medium;
+    src: url('../fonts/Oxfam-TSTARPRO-Medium.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family:Oxfam-TSTARPRO-LightItalic;
+    src: url('../fonts/Oxfam-TSTARPRO-LightItalic.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family:Oxfam-TSTARPRO-Light;
+    src: url('../fonts/Oxfam-TSTARPRO-Light.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family:Oxfam-TSTARPRO-Bold;
+    src: url('../fonts/Oxfam-TSTARPRO-Bold.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family:OxfamGlobalHeadline;
+    src: url('../fonts/OxfamGlobalHeadline.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+Label
+{
+    font-family:Oxfam-TSTARPRO-Regular;
+}
+
