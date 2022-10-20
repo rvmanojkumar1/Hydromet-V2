@@ -1,0 +1,24 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>
+
+</title></head>
+<body>
+    <form method="post" action="./download.aspx?target=4&amp;url=header&amp;extention=jpg&amp;userid=4&amp;q=Img_1B" id="form1">
+<div class="aspNetHidden">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="9iHrgZ6K/gtrVYFDxLWt8xFwUff9LqWk/Lpf4Z5FK+1W1Zu4jvo+BSo/WFsD12lWFQYS6xN4/0vZQu47KpCou6xfTLy9aHXALx/JnO6NXRU=" />
+</div>
+
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="257F9425" />
+</div>
+    <div>
+    
+    </div>
+    </form>
+</body>
+</html>

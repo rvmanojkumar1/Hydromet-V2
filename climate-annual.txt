@@ -1,0 +1,8 @@
+June
+Air Temp-Min, Max, Avg
+Relative Humidity-Min,Max,Avg
+Wind Speed-Min, Max, Avg
+Wind Direction-Min, Max, Avg
+Air Temp F-Min,Max,Avg
+Rainfall Annual-Total
+Rain-Total

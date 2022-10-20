@@ -1,0 +1,222 @@
+#map {
+			width: 100%;
+			height: 100%;
+		}
+
+		.info {
+			padding: 6px 8px;
+			font: 14px/16px Arial, Helvetica, sans-serif;
+			background: white;
+			background: rgba(255,255,255,0.8);
+			box-shadow: 0 0 15px rgba(0,0,0,0.2);
+			border-radius: 5px;
+		}
+		.info h4 {
+			margin: 0 0 5px;
+			color: #777;
+		}
+		
+		
+		.legend {
+			text-align: left;
+			line-height: 18px;
+			color: #555;
+			margin-bottom: 200px;
+		}
+		.legend i {
+			width: 18px;
+			height: 18px;
+			float: left;
+			margin-right: 8px;
+			opacity: 0.7;
+		}
+		.container,.main {
+	        height: 100%;
+	        
+	      }
+		
+	     .tabs input[type=radio] {
+	          position: absolute;
+	          top: -9999px;
+	          left: -9999px;
+	      }
+	      .tabs {
+	        width: 500px;
+	        float: none;
+	        list-style: none;
+	        position: relative;
+	        padding: 0;
+	      }
+	      .tabs li{
+	        float: left;
+	      }
+	      .tabs label {
+	          display: block;
+	          padding: 10px 20px;
+	          border-radius: 2px 2px 0 0;
+	          color: #08C;
+	          font-size: 18px;
+	          font-weight: normal;
+	          font-family: 'Roboto', helveti;
+	          background: rgba(255,255,255,0.2);
+	          cursor: pointer;
+	          position: relative;
+
+	          -webkit-transition: all 0.2s ease-in-out;
+	          -moz-transition: all 0.2s ease-in-out;
+	          -o-transition: all 0.2s ease-in-out;
+	          transition: all 0.2s ease-in-out;
+	      }
+	      .tabs label:hover {
+	        background: rgba(255,255,255,0.5);
+	        
+	      }
+		  
+		  .tabs1 input[type=radio] {
+	          position: absolute;
+	          top: -9999px;
+	          left: -9999px;
+	      }
+	      .tabs1 {
+	        width: 500px;
+	        float: none;
+	        list-style: none;
+	        position: relative;
+	        padding: 0;
+	        margin: 0px auto;
+	      }
+	      .tabs1 li{
+	        float: left;
+			border: 1px solid rgb(0, 136, 204);
+			background:#E8E8EA;
+	      }
+	      .tabs1 label {
+	          display: block;
+	          padding: 10px 20px;
+	          border-radius: 2px 2px 0 0;
+	          color: #08C;
+	          font-size: 18px;
+	          font-weight: normal;
+	          font-family: 'Roboto', helveti;
+	          background: rgba(255,255,255,0.2);
+	          cursor: pointer;
+	          position: relative;
+
+	          -webkit-transition: all 0.2s ease-in-out;
+	          -moz-transition: all 0.2s ease-in-out;
+	          -o-transition: all 0.2s ease-in-out;
+	          transition: all 0.2s ease-in-out;
+	      }
+	      .tabs1 label:hover {
+	        background: rgba(255,255,255,0.5);
+	        
+	      }
+		  
+		  .tabs2 input[type=radio] {
+	          position: absolute;
+	          top: -9999px;
+	          left: -9999px;
+	      }
+	      .tabs2 {
+	        width: 500px;
+	        float: none;
+	        list-style: none;
+	        position: relative;
+	        padding: 0;
+	        margin: 75px auto;
+	      }
+	      .tabs2 li{
+	        float: left;
+	      }
+	      .tabs2 label {
+	          display: block;
+	          padding: 10px 20px;
+	          border-radius: 2px 2px 0 0;
+	          color: #08C;
+	          font-size: 18px;
+	          font-weight: normal;
+	          font-family: 'Roboto', helveti;
+	          background: rgba(255,255,255,0.2);
+	          cursor: pointer;
+	          position: relative;
+
+	          -webkit-transition: all 0.2s ease-in-out;
+	          -moz-transition: all 0.2s ease-in-out;
+	          -o-transition: all 0.2s ease-in-out;
+	          transition: all 0.2s ease-in-out;
+	      }
+	      .tabs2 label:hover {
+	        background: rgba(255,255,255,0.5);
+	        
+	      }
+	      .tabs3 input[type=radio] {
+	          position: absolute;
+	          top: -9999px;
+	          left: -9999px;
+	      }
+	      .tabs3 {
+	        width: 500px;
+	        float: none;
+	        list-style: none;
+	        position: relative;
+	        padding: 0;
+	        margin: 75px auto;
+	      }
+	      .tabs3 li{
+	        float: left;
+	      }
+	      .tabs3 label {
+	          display: block;
+	          padding: 10px 20px;
+	          border-radius: 2px 2px 0 0;
+	          color: #08C;
+	          font-size: 18px;
+	          font-weight: normal;
+	          font-family: 'Roboto', helveti;
+	          background: rgba(255,255,255,0.2);
+	          cursor: pointer;
+	          position: relative;
+
+	          -webkit-transition: all 0.2s ease-in-out;
+	          -moz-transition: all 0.2s ease-in-out;
+	          -o-transition: all 0.2s ease-in-out;
+	          transition: all 0.2s ease-in-out;
+	      }
+	      .tabs3 label:hover {
+	        background: rgba(255,255,255,0.5);
+	        
+	      }
+	      
+	      [id^=tab]:checked + label {
+	        background: #08C;
+	        color: black;
+	        top: 0;
+			margin-bottom: 0px;
+	      }
+	      
+	      [id^=tab]:checked ~ [id^=tab-content] {
+	          display: block;
+	      }
+	      .tab-content{
+	        z-index: 2;
+	        display: none;
+	        text-align: left;
+	        width: 97%;
+	        font-size: 15px;
+	        line-height: 130%;
+	        padding-top: 0px;
+	        background: #fff;
+	        padding: 8px;
+	        color: black;
+	        position: absolute;
+	        left: 0;
+			border: 1px solid rgb(0, 136, 204);
+	        box-sizing: border-box;
+	        -webkit-animation-duration: 0.5s;
+	        -o-animation-duration: 0.5s;
+	        -moz-animation-duration: 0.5s;
+	        animation-duration: 0.5s;
+	      }
+		 table td { vertical-align: top }
+		dd { padding-bottom: 15px }
+		
