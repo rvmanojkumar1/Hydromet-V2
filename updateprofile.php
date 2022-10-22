@@ -38,7 +38,7 @@ if(isset($_GET['check']))
 		echo "<script>alert('Password Mis-match')</script>";
 	}
 }
-$result = pg_query("SELECT \"Username\",\"Email\",\"UserType\" FROM \"tblloginandregister\" where \"approved\"='1'");
+$result = pg_query("SELECT \"Username\",\"Email\",\"UserType\" FROM \"tblloginandregister\" where \"approved\"='1'  and \"enabled\"= 'true'");
 ?>
 
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
