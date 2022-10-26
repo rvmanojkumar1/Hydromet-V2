@@ -1,3 +1,0 @@
-Open pgsql query tool for tblloginandregister and paste this
-
-update public.tblloginandregister set enabled = false where "Username" = ‘<username>’ ;
