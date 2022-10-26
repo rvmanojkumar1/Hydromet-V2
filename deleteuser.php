@@ -95,25 +95,11 @@
                                         </div>
                                     </div>
                                 </div>
-                            </body>
-
-</html>
-
-
-
-
-
-
-
-	</div>
-	</div>
-	</div>
-	</div>
-	</div>
-	
-	
-	
-
-    <script language="javascript" src="users.js" type="text/javascript"></script>						
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+<script language="javascript" src="users.js" type="text/javascript"></script>						
 </body>
 </html>
