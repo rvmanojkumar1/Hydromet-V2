@@ -1,0 +1,103 @@
+/*style for header.php*/
+.head_a
+{
+text-transform: capitalize;
+}
+.dropdown
+ {
+  font-size: 10;
+}
+.dropdown:hover{
+background-color: #e54e4b;
+}
+.top-bar{
+  background: #231f20!important;
+}
+
+
+@media only screen 
+  and (min-device-width: 302px) 
+  and (max-device-width: 480px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+    .logo a span{
+      font-size: 10px;
+    }
+    .logo a img{
+      width:100px;
+      height: 100px;
+
+    }
+}
+@media only screen 
+  and (min-device-width: 200px) 
+  and (max-device-width: 301px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+    .logo a span{
+      font-size: 9px;
+    }
+    .logo a img{
+      width:90px;
+      height: 90px;
+
+    }
+}
+
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    overflow: hidden;
+    min-width: 230px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content label {
+    color: gray;
+    padding: 12px 16px;
+      font-size: 15px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content label:hover {background-color: #e54e4b;
+color: white;}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+  position:absolute;
+   z-index:1000;
+}
+.spancss{
+  font-family: Open Sans, sans-serif;font-size: 20px;color:#33ccff;-webkit-transitio: all 0.2s linear 0s;-moz-transition: all 0.2s linear 0s;-o-transition: all 0.2s linear 0s;transition: all 0.2s linear 0s;letter-spacing:0.5px;
+}
+
+/* dashboard dropdown scrollbar */
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+      /* min-height: 50px; */
+  
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey; 
+    border-radius: 10px;
+     
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: red; 
+    border-radius: 10px;
+   
+   
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #b30000; 
+   
+  }
