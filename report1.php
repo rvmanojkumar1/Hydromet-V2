@@ -20,7 +20,7 @@
 		<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 		<script src="js/jquery.table2excel.js"></script>
-		<style type="text/css">
+	<style type="text/css">
 			#btnExport
 		    {
 		      padding: 5px;
@@ -32,7 +32,7 @@
 		      /*margin-top: 5px;*/
 		      display: none;
 		    }
-		</style>
+	</style>
 		<script type="text/javascript">
 			$(document).ready(function(){
 				$("button").removeAttr("title");
@@ -62,13 +62,10 @@
 				        $("#daily_table").attr("value", "dd-mm-yyyy");
 				        $("#daily_table").css("display","none");
 				        $("#Annual_table").css("display","");
-
 					}
     			});
 
-
-				
-  				type=$("#report_type").val();
+			type=$("#report_type").val();
     		});
     		$(document).ready(function()
   			{
@@ -111,9 +108,11 @@
 			    var filename = $("#type_of_report").val();
 			    if(filename=='Daily'){
                filename=filename+"-report "+$("#EditStartDate").val();
-            }else if(filename=='Monthly'){
+            }
+			else if(filename=='Monthly'){
                filename=filename+"-report "+$("#months").val()+"-"+$("#years").val();
-            }else if(filename=='Annual'){
+            }
+			else if(filename=='Annual'){
                filename=filename+"-report "+$("#Annual_years").val();
             }
 			    $("#table").table2excel({
@@ -143,9 +142,11 @@
             var FD=presentdate.getDate()
             if(type_of_report=='Daily'){
                window.location.href='report1.php?station='+stn+"&report_type="+val+"&type="+type_of_report+"&FY="+FY+"&FM="+FM+"&FD="+FD;
-            }else if(type_of_report=='Monthly'){
+            }
+			else if(type_of_report=='Monthly'){
                window.location.href='report1.php?station='+stn+"&report_type="+val+"&type="+type_of_report+"&FY="+FY+"&FM="+FM;
-            }else if(type_of_report=='Annual'){
+            }
+			else if(type_of_report=='Annual'){
                window.location.href='report1.php?station='+stn+"&report_type="+val+"&type="+type_of_report+"&FY="+FY;
             }
     			     
@@ -177,14 +178,10 @@
 					alert('Please Select Sensor!');
 					return;
 				}
-				 
-				 
+				
 				else 
 				{
 				    var type=$("#type_of_report").val();
-
-
-				        
 				    var station = document.getElementById("Sname").value;
 				    if (type=="Daily") {
 				        var Ids = [];
@@ -193,18 +190,14 @@
 				        var yearFrom;
 				        var monthFrom;
 				        var dayFrom;
-				         
-
 				        var currentdate = new Date();
 				        var jsFromDate =document.getElementById("EditStartDate").value;
-				        
 				        jsFromDate=jsFromDate.replace("-","/");
 				        jsFromDate=new Date(jsFromDate);
 				   
-				        if (jsFromDate =="Invalid Date") {
-				                 
+				        if (jsFromDate =="Invalid Date")
+						{  
 				            yearFrom = currentdate.getFullYear();
-
 				            monthFrom = currentdate.getMonth() + 1;
 				            dayFrom = currentdate.getDate();
 				        }
@@ -213,21 +206,18 @@
 				            yearFrom = jsFromDate.getFullYear(); // where getFullYear returns the year (four digits)
 				            monthFrom = jsFromDate.getMonth()+1; // where getMonth returns the month (from 0-11)
 				            dayFrom = jsFromDate.getDate();
-				           
 				             // where getDate returns the day of the month (from 1-31)
 				        }
 				        window.location.href= 'report1.php?FY=' + yearFrom + "&FM=" + monthFrom + "&FD=" + dayFrom + "&PARAMS=" + params+"&station="+station+"&type=Daily&report_type="+typereport;
 				    }
 				    else if (type=="Monthly")
 				    {
-
 				        var yearFrom=$("#years option:selected").val();
 				        var monthFrom=$("#months option:selected").val();
 				        window.location.href= 'report1.php?FY=' + yearFrom + "&FM=" + monthFrom + "&PARAMS=" + params+"&station="+station+"&type=Monthly&report_type="+typereport;
 				    }
 				    else if (type=="Annual")
 				    {
-
 				        var yearFrom=$("#Annual_years option:selected").val();
 				        window.location.href= 'report1.php?FY=' + yearFrom + "&PARAMS=" + params+"&station="+station+"&type=Annual&report_type="+typereport;
 				    }
@@ -255,7 +245,7 @@
 								  	//if(trim($_GET['report_type'])=="Reservoir") echo "selected";
 								  	//} ?>>Reservoir
 								  </option>
-	   							<option value="River" <?php// if (isset($_GET['report_type'])) {
+	   							<option value="River" <?php // if (isset($_GET['report_type'])) {
 								  	//if(trim($_GET['report_type'])=="River") echo "selected";
 								  //	} ?>>River
 								</option> -->
@@ -363,10 +353,8 @@
 								$testvalue=array();
 									if(pg_num_rows($result_set1)>0)
 									{	
-										
 									    while($row=pg_fetch_row($result_set1))
 									    {
-									    	
 											for($k=0;$k<count($sensornames);$k++){
 												if($row[0]==$sensornames[$k]){
 													$test=1;
@@ -378,11 +366,8 @@
 											}
 											array_push($testvalue, $test);
 										}
-										
 									}
 							?>
-
-
 	     					<select name="SensorList"  id="SensorList" 
 	     						<?php 
 	     							if (isset($_GET['report_type'])) {
@@ -398,7 +383,6 @@
 		     							echo "class='selectpicker' multiple=''";
 	 							?>>
 	    						<?php 
-	  
 									$result_set1=pg_query($sql_query1);
 									$tempparams=explode(';', trim($_GET['PARAMS']));
 
@@ -413,9 +397,7 @@
 										$k=0;
 									    while($row=pg_fetch_row($result_set1))
 									    {
-									    	
 											?>
-
 											<option value='<?php echo $row[0]?>' 
 												<?php 
 													if (isset($_GET['PARAMS'])) 
@@ -440,17 +422,13 @@
 											$k++;
 										}
 									}
-	    						?>
-	      
+	    									?>
 	    					</select>
-
 	    				</div>
-
 					    <div class="col-md-2" style="margin-top: -5px;">  
 	    					<table id="daily_table">
 	      						<tr>
 	      							<td class="pad">
-	    
 										<label >Date</label>
 										<?php 
 											if (isset($_GET['FY'])&&isset($_GET['FM'])&&isset($_GET['FD'])) {
@@ -459,7 +437,6 @@
 	  										
 	    									}
 	    								?>
-	    
 	      							</td>
 	      							<td>
 	     								<input type="date" name="EditStartDate" id="EditStartDate" class="form-control" required value="<?php if(isset($da)) { echo date('Y-m-d',$da);} ?>" onChange="emptyHours()">
@@ -496,7 +473,6 @@
 									    ?>
 		    						</td>
 		    						<td>
-		      
 		      							<select class="form-control" id="years">
 									      	<option value="2017" <?php selected("FY","2017"); ?>>2017</option>
 									      	<option value="2018" <?php selected("FY","2018"); ?>>2018</option>
@@ -536,7 +512,6 @@
 								</tr>
 							</table>
 	     				</div>
-	  
 	    				<div class="col-md-1" > 
 	    					<table>
 	    						<tr>
@@ -675,10 +650,9 @@
 				$FD = trim($_GET["FD"]);
 				
 				$result_table=  pg_query("SELECT * FROM \"tblAllTables\" where \"TableName\" like '%".$station."_$FY%'");
-	  			if (isset($result_table)) {
-
+	  			if (isset($result_table)) 
+				{
 				   	$stn_id=  pg_query("SELECT \"StationId\" FROM \"tblStation\" where \"StationName\"='$station'");
-
 				   	$id_row=pg_fetch_array($stn_id);
 				   	$s_id= $id_row['StationId'];
 				   	$sensor_count=0;
@@ -698,19 +672,16 @@
 				   		$sql_query_virtual="SELECT * FROM crosstab ('SELECT  (''20''||\"Year\"::text ||''-''||\"Month\"::text ||''-''|| \"Day\" ::text ||'' ''||\"Hour\"::text || '':'' || \"Minute\" ::text ||'':'' ||\"Second\")::timestamp  as t,\"HydroMetParamsTypeId\", \"VirtualValue\" FROM \"'$table'\" a where ((\"Year\" ,\"Month\", \"Day\") BETWEEN ($FY,$FM,$FD) AND ($FY,$FM,$FD)) and a.\"StationId\"=$s_id and  \"sensortype\"=''Virtual'' and ($HydroMetShefCodeCoditionVirtual) order by 1','SELECT distinct \"HydroMetParamsTypeId\" FROM \"'$table'\" as a where \"sensortype\"=''Virtual'' AND ($HydroMetShefCodeCoditionVirtual)') AS final_result(t timestamp";
 
 	        			$col_set=pg_query("SELECT distinct \"HydroMetParamsTypeId\" FROM \"$table\" as a where a.\"sensortype\"='Virtual' AND ($HydroMetShefCodeCoditionVirtual)");
-	        
 
 	        			while ($cols=pg_fetch_array($col_set)) { 
 	          				$sql_query_virtual.=",\"".$cols[0]."\" double precision";
 	        			}
 				   		$sql_query_virtual.=")";
-
 				   		$sql_query="select t2.t";
 				   		$col_set=pg_query("select \"SHEF\",\"SensorType\" FROM \"SensorValues\" where (\"StationFullName\"= '$stn_name') and ($sensorCondition) order by \"Sensor\" desc");
 				   		while ($cols=pg_fetch_array($col_set)) 
 	        			{
 	          				$counted=count($PARAMS)-1;
-	       
 	          				$col=pg_fetch_array(pg_query("SELECT  \"HydroMetParamsTypeId\" FROM \"tblHydroMetParamsType\" where  \"HydroMetShefCode\"='$cols[0]'"));
 	        
 	          				if (trim($cols[1])=='Real') 
@@ -719,7 +690,6 @@
 	            				{
 	              					$sql_query .=",t1.\"$col[0]\"" ;
 	              					$sensor_count++;
-	            
 	            				}
 	            				else{
 	              					$colum=$col[0];
@@ -731,7 +701,6 @@
 	            				{
 	              					$sql_query .=",t2.\"$col[0]\"";
 	              					$sensor_count++;
-	            
 	            				}
 	            				else{
 	              					$colum=$col[0];
@@ -745,7 +714,6 @@
 				            	$sql_query.=",NULL as \"$colum\"";
 				          
 				          	}
-				         
 				        }
 				        $sql_query=rtrim($sql_query,",");
 	        			if($realsensors!=''){
@@ -763,16 +731,13 @@
 	          				$col_set=pg_query("select \"SHEF\",\"SensorType\" FROM \"SensorValues\" where (\"StationFullName\"= '$stn_name') and ($sensorCondition) order by \"Sensor\" desc");
 	          				while ($cols=pg_fetch_array($col_set)) 
 	          				{
-
 	            				$counted=count($PARAMS)-1;
-	          
 	            				$col=pg_fetch_array(pg_query("SELECT  \"HydroMetParamsTypeId\"   FROM \"tblHydroMetParamsType\" where  \"HydroMetShefCode\"='$cols[0]'"));
 
 	            				if (trim($cols[1])=='Real') 
 	            				{
 	              					if(pg_num_rows(pg_query("select distinct \"HydroMetParamsTypeId\" FROM  \"$table\" a where ((\"Year\" ,\"Month\", \"Day\") BETWEEN ($FY,$FM,$FD) AND ($FY,$FM,$FD)) and a.\"StationId\"=$s_id  and \"HydroMetParamsTypeId\"=$col[0] order by 1 desc"))>0)
 	              					{
-	              						
 	                					$sql_query .=",t1.\"$col[0]\"" ;
 	                					$sensorcount++;
 	              					}
@@ -793,13 +758,10 @@
 	            				}
 	         
 	          				}
-
 	          				$sql_query.=" from (".$sql_query_real." ) t1";
 	        			}
-	      
 	        			$result_set=$sql_query;
-	        			//echo $result_set;
-	        			
+	        			//echo $result_set;	
 				   	}
 				}
 				?>
@@ -845,26 +807,28 @@
 			          							}
 			          							else{
 								?>
-	          					<th style="background-color:#539CCC;color:white;text-align:center;font-size: 13px;"><?php $sensor_position++;
+	          						<th style="background-color:#539CCC;color:white;text-align:center;font-size: 13px;">
+									<?php $sensor_position++;
 	          								echo $sensor_row[0];
 	          								if ($sensor_row[1]!="") 
 	          									echo" (".$sensor_row[1].")";
 	          								array_push($sensororder,$sensor_row[0]);
-	          					?>
-	          					</th>
-	          						<?php 			}
+	          						?>
+	          						</th>
+	          						<?php 			
+													}
 	          									}
 	          								} 
 	        							}
 	      							}
 	      							if($sens_name!=''){
-								?>
-								<th style="background-color:#539CCC;color:white;text-align:center;font-size: 13px;">
+									?>
+									<th style="background-color:#539CCC;color:white;text-align:center;font-size: 13px;">
 	          						<?php echo $sens_name." (".$symbol.")";array_push($sensororder,$sens_name);?>
-	          					</th>
-	          					<?php
+	          						</th>
+	          						<?php
 	          						}
-	          					?>
+	          						?>
 	    					</tr>
 	    					<?php
 	    						$results=pg_query($result_set);
@@ -897,12 +861,10 @@
 								      		}
 								        	if($row[0]!=""){
 									        	$row_count=1;
-
 							?>
 					        <tr>
 					        	<td style="text-align:center;font-size: 13px;height: 14px;width:350px"><?php if (isset($row[0])){ if (trim($row[0])!="icon.png"){$date = strtotime(trim($row[0]));echo date(trim($settings[0]), $date); }}?></td>       
 							<?php 
-	 
 									        	$result_sensor1=pg_query("select \"Sensor\",\"Units\" from \"SensorValues\" where (\"StationFullName\"= '$stn_name') and ($sensorCondition)");
 									        	$sensor_row=pg_num_rows(($result_sensor1));
 
@@ -1010,7 +972,6 @@
 							<?php
 									$array_values[$i][]=number_format(floatval($row[$row_count]),$settings[1]);
 														}
-
 													}
 													else{
 														?>                                
@@ -1020,15 +981,11 @@
 													}
 	        										$row_count=$row_count+1;
 	      										}
-
 							?>
-
 	      					</tr>
 							<?php    
 	    									}
 	  									}
-
-
 									}
 									else
 									{
@@ -1039,7 +996,6 @@
 								}
 								
 	    					?>
-
 							<th style="background-color:#539CCC;color:white;text-align:center;font-size: 13px;padding: 4px;" colspan="<?php echo $sensor_row+1; ?>">Summary</th>
 							<?php
 								
@@ -1074,7 +1030,6 @@
 										<?php
 									}
 								}
-								
 							?>
 							</tr>
 							<tr>
@@ -1138,11 +1093,9 @@
 					$numdays=$D;
 				}
 		
-				for($k=1;$k<=$numdays;$k++){
-
+				for($k=1;$k<=$numdays;$k++)
+				{
 					$FD=$k;
-					
-
 					$result_table=  pg_query("SELECT * FROM \"tblAllTables\" where \"TableName\" like '%".$station."_$FY%'");
 		  			if (isset($result_table)) {
 
@@ -1163,12 +1116,11 @@
 				          		$sql=pg_fetch_array(pg_query("select \"Value\" FROM  \"$table\" a where ((\"Year\" ,\"Month\", \"Day\")<($FY,$FM,$FD)) and a.\"StationId\"=$s_id and \"HydroMetParamsTypeId\"=$col[0] order by 1 desc"));
 											      		
 								$tempvalue=$sql[0];
-
 							}
 					   		$sql_query_real="SELECT * FROM crosstab ('SELECT  (''20''||\"Year\"::text ||''-''|| \"Month\"::text ||''-''|| \"Day\" ::text ||'' ''|| \"Hour\"::text || '':'' || \"Minute\" ::text ||'':'' ||\"Second\")::timestamp  as t,\"HydroMetParamsTypeId\", \"Value\" FROM  \"'$table'\" a where ((\"Year\" ,\"Month\", \"Day\") BETWEEN ($FY,$FM,$FD) AND ($FY,$FM,$FD)) and a.\"StationId\"=$s_id and ($HydroMetShefCodeCodition) order by 1 ','SELECT distinct \"HydroMetParamsTypeId\" FROM \"'$table'\" as a WHERE ($HydroMetShefCodeCodition)') AS final_result(t timestamp";
 
 		        			$col_set=pg_query("SELECT distinct \"HydroMetParamsTypeId\" FROM \"$table\" as a WHERE ($HydroMetShefCodeCodition)");
-		      
+
 		        			while ($cols=pg_fetch_array($col_set)) { 
 				          		$sql_query_real.=",\"".$cols[0]."\" double precision";
 				        	}
@@ -1177,7 +1129,6 @@
 					   		$sql_query_virtual="SELECT * FROM crosstab ('SELECT  (''20''||\"Year\"::text ||''-''||\"Month\"::text ||''-''|| \"Day\" ::text ||'' ''||\"Hour\"::text || '':'' || \"Minute\" ::text ||'':'' ||\"Second\")::timestamp  as t,\"HydroMetParamsTypeId\", \"VirtualValue\" FROM \"'$table'\" a where ((\"Year\" ,\"Month\", \"Day\") BETWEEN ($FY,$FM,$FD) AND ($FY,$FM,$FD)) and a.\"StationId\"=$s_id and  \"sensortype\"=''Virtual'' and ($HydroMetShefCodeCoditionVirtual) order by 1','SELECT distinct \"HydroMetParamsTypeId\" FROM \"'$table'\" as a where \"sensortype\"=''Virtual'' AND ($HydroMetShefCodeCoditionVirtual)') AS final_result(t timestamp";
 
 		        			$col_set=pg_query("SELECT distinct \"HydroMetParamsTypeId\" FROM \"$table\" as a where a.\"sensortype\"='Virtual' AND ($HydroMetShefCodeCoditionVirtual)");
-		        
 
 		        			while ($cols=pg_fetch_array($col_set)) { 
 		          				$sql_query_virtual.=",\"".$cols[0]."\" double precision";
@@ -1189,7 +1140,6 @@
 					   		while ($cols=pg_fetch_array($col_set)) 
 		        			{
 		          				$counted=count($PARAMS)-1;
-		       
 		          				$col=pg_fetch_array(pg_query("SELECT  \"HydroMetParamsTypeId\" FROM \"tblHydroMetParamsType\" where  \"HydroMetShefCode\"='$cols[0]'"));
 		        
 		          				if (trim($cols[1])=='Real') 
@@ -1198,7 +1148,6 @@
 		            				{
 		              					$sql_query .=",t1.\"$col[0]\"" ;
 		              					$sensor_count++;
-		            
 		            				}
 		            				else{
 		              					$colum=$col[0];
@@ -1217,14 +1166,13 @@
 		            				}
 		          				}
 		        			}
-		        			if($sensor_count!=""){
-		        
+		        			if($sensor_count!="")
+							{
 					        	if($sensor_count<$counted){
 					          
 					            	$sql_query.=",NULL as \"$colum\"";
 					          
 					          	}
-					         
 					        }
 					        $sql_query=rtrim($sql_query,",");
 		        			if($realsensors!=''){
@@ -1238,21 +1186,17 @@
 		        			if(pg_num_rows(pg_query("SELECT distinct \"HydroMetParamsTypeId\" FROM \"$table\" as a where a.\"sensortype\"='Virtual' and ($HydroMetShefCodeCoditionVirtual)"))<=0)
 		        			{
 		          				$sql_query="select t1.t";
-		        
 		          				$col_set=pg_query("select \"SHEF\",\"SensorType\" FROM \"SensorValues\" where (\"StationFullName\"= '$stn_name') and ($sensorCondition) order by \"Sensor\" desc");
+
 		          				while ($cols=pg_fetch_array($col_set)) 
 		          				{
-
 		            				$counted=count($PARAMS)-1;
-		          
 		            				$col=pg_fetch_array(pg_query("SELECT  \"HydroMetParamsTypeId\"   FROM \"tblHydroMetParamsType\" where  \"HydroMetShefCode\"='$cols[0]'"));
 
 		            				if (trim($cols[1])=='Real') 
 		            				{	
-		            					
 		              					if(pg_num_rows(pg_query("select distinct \"HydroMetParamsTypeId\" FROM  \"$table\" a where a.\"StationId\"=$s_id  and \"HydroMetParamsTypeId\"=$col[0] order by 1 desc"))>0)
 		              					{
-		              						
 		                					$sql_query .=",t1.\"$col[0]\"" ;
 		                					$sensorcount++;
 		              					}
@@ -1263,23 +1207,16 @@
 		            				}
 		          				}
 		        
-		          				if($sensorcount!=""){
-		          
+		          				if($sensorcount!="")
+								{
 		            				if($sensorcount<$counted)
 		            				{
-		            
 		              					$sql_query.=",NULL as \"$colum\"";
-		            
 		            				}
-		         
 		          				}
-
 		          				$sql_query.=" from (".$sql_query_real." ) t1";
 		        			}
-		      
 		        			$result_set=$sql_query;
-		        			
-
 					   	}
 					}
 					$results=pg_query($result_set);
@@ -1287,8 +1224,8 @@
      //           echo "<br>";
      //           echo "<br>";
 					$pradeep=1;
-					while ($row=pg_fetch_row($results)) {
-
+					while ($row=pg_fetch_row($results)) 
+					{
 						$row_count=1;
 						$c=0;
 						$result_sensor1=pg_query("select \"Sensor\",\"Units\" from \"SensorValues\" where (\"StationFullName\"= '$stn_name') and ($sensorCondition)");
@@ -1339,12 +1276,10 @@
 	      										$subhead=explode(',', $txtdata[$o][1]);
 	      										break;
 	      									}
-
 	      								}
 	      								$sql="";
 	      								if (trim($sensor_row[2])=="Real")
 	        							{
-	    
 	          								$col=pg_fetch_array(pg_query("SELECT  \"HydroMetParamsTypeId\"   FROM \"tblHydroMetParamsType\" where  \"HydroMetShefCode\"='$sensor_row[3]'"));
 	          
 	          								$sql=("select distinct \"HydroMetParamsTypeId\" FROM  \"$table\" a where ((\"Year\" ,\"Month\", \"Day\") BETWEEN ($FY,$FM,$FD) AND ($FY,$FM,$FD)) and a.\"StationId\"=$s_id  and \"HydroMetParamsTypeId\"=$col[0] order by 1 desc");
@@ -1356,9 +1291,10 @@
 	        							}
 	        							if(pg_num_rows(pg_query($sql))>=0)
 	        							{
-	        								
-	        								if (isset($sensor_row[0])){
-	        									if($sensor_row[0]!=''){
+	        								if (isset($sensor_row[0]))
+											{
+	        									if($sensor_row[0]!='')
+												{
 				          							if(($sensor_row[0]=='Rainfall Annual')||($sensor_row[0]=='Rain')){
 				          								$sens_name=$sensor_row[0];
 				          								$postion=$sensor_position;
@@ -1383,7 +1319,8 @@
 				          					}
 				          				}
 	      							}
-	      							if($sens_name!=''){
+	      							if($sens_name!='')
+									{
 	      								?>
 	      									<th style="background-color:#539CCC;color:white;text-align:center;font-size: 13px;" colspan="<?php echo $colcount;?>"><?php echo $sens_name." (".$symbol.")";array_push($sensororder,$sens_name);?></th>
 	      								<?php
@@ -1398,12 +1335,9 @@
 									
 									while ($sensor_row=pg_fetch_array($result_sensor1)) 
 	      							{
-	      								
-	      								
 	      								$sql="";
 	      								if (trim($sensor_row[2])=="Real")
 	        							{
-	    
 	          								$col=pg_fetch_array(pg_query("SELECT  \"HydroMetParamsTypeId\"   FROM \"tblHydroMetParamsType\" where  \"HydroMetShefCode\"='$sensor_row[3]'"));
 	          
 	          								$sql=("select distinct \"HydroMetParamsTypeId\" FROM  \"$table\" a where ((\"Year\" ,\"Month\", \"Day\") BETWEEN ($FY,$FM,$FD) AND ($FY,$FM,$FD)) and a.\"StationId\"=$s_id  and \"HydroMetParamsTypeId\"=$col[0] order by 1 desc");
@@ -1453,7 +1387,7 @@
 		      								<?php
 	      								}
 	      							}
-								?>
+											?>
 							</tr>
 								<?php
 									$result_sensor2=pg_query("select \"Sensor\",\"Units\" from \"SensorValues\" where (\"StationFullName\"= '$stn_name') and ($sensorCondition)");
@@ -1475,7 +1409,6 @@
 									}
 									
 									$str=array();
-									
 									for($h=0;$h<$sensor_row_count;$h++){
 										if((strpos($PARAMS[$h],"Rainfall Annual")!==false)||(strpos($PARAMS[$h],"Rain")!==false)){
 											$check=1;
@@ -1491,7 +1424,6 @@
 										?>
 											<tr>
 												<td style="text-align:center;font-size: 13px;height: 14px;"><?php echo $p; ?></td>
-												
 												<?php
 													$t=0;$e=0;
 													for($h=0;$h<$sensor_row_count;$h++){
@@ -1557,7 +1489,6 @@
 																			?>
 																				<td style="text-align:center;font-size: 13px;height: 14px;"><?php echo $out_avg; ?></td>
 																			<?php
-
 																			}
 																			else{
 																			?>
@@ -1578,13 +1509,13 @@
 																			print_r($array_values[$p][$h]);
 																			echo $out_total;
 																			if(count($array_values[$p][$h])==0){
-                                                            $out_total="-";
-                                                         ?>
-                                                            <td style="text-align:center;font-size: 13px;height: 14px;"><?php echo $out_total; ?></td>
-                                                         <?php
+                                                            					$out_total="-";
+                                                         					?>
+                                                            				<td style="text-align:center;font-size: 13px;height: 14px;"><?php echo $out_total; ?></td>
+                                                         					<?php
 
-                                                         }
-                                                         else{
+                                                         					}
+                                                         						else{
    																			?>
    																				<td style="text-align:center;font-size: 13px;height: 14px;"><?php if($checkmissing<24){ echo number_format(floatval($out_total),$settings[1])."<span class=\"asterisk\">*</span>";}else{echo number_format(floatval($out_total),$settings[1]);} ?></td>
    																			<?php
@@ -1596,7 +1527,7 @@
 																					$array_summary[$t][]=number_format(floatval($out_total),$settings[1]);
 																					$checksum[$t][]=1;
 																				}
-                                                         }
+                                                         					}
 																		}
 																		$t=$t+1;
 																		$e=$e+1;
@@ -1606,12 +1537,12 @@
 														}
 
 													}
-													for($h=0;$h<$sensor_row_count;$h++){
-
-														
-														for($g=0;$g<count($txtdata);$g++){
-															if($str[$h]==1){
-																
+													for($h=0;$h<$sensor_row_count;$h++)
+													{
+														for($g=0;$g<count($txtdata);$g++)
+														{
+															if($str[$h]==1)
+															{
 																if(($checkterm[$p][0][0]=='')||($checkterm[$p][0][23]=='')){
 																	$checkmissingterm=0;
 																}
@@ -1699,12 +1630,12 @@
 																		else if(trim($subs[$d])=="Total"){
 																			$out_total=array_sum($array_values[$p][$h]);
 																			if(count($array_values[$p][$h])==0){
-                                                            $out_total="-";
-                                                            ?>
-                                                               <td style="text-align:center;font-size: 13px;height: 14px;"><?php echo $out_total; ?></td>
-                                                            <?php
-                                                         }
-                                                         else{
+                                                            				$out_total="-";
+                                                            				?>
+                                                            					<td style="text-align:center;font-size: 13px;height: 14px;"><?php echo $out_total; ?></td>
+                                                            				<?php
+																		}
+																		else{
    																			?>
    																				<td style="text-align:center;font-size: 13px;height: 14px;"><?php if($checkmissingterm==0){ echo number_format(floatval($out_total),$settings[1])."<span class=\"asterisk\">*</span>";}else{echo number_format(floatval($out_total),$settings[1]);} ?></td>
    																			<?php
@@ -1734,7 +1665,6 @@
 									// echo $t
 								?>
 								<th style="background-color:#539CCC;color:white;text-align:center;font-size: 13px;padding: 4px;" colspan="<?php echo $t+1; ?>">Summary</th>
-
 								<tr>
 									<td style="background-color:#539CCC;color:white;text-align:center;font-size: 13px;">Min</td>
 									<?php
@@ -1882,7 +1812,7 @@
 					</center>
 				</div>
 					
-				<?php
+			<?php
 			}
 			else if($_GET['type']=="Annual")
 			{

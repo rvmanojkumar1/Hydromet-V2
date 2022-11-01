@@ -5,7 +5,7 @@ document.frmUser.submit();
 }
 }
 function setDeleteAction() {
-if(confirm("Are you sure want to delete these user?")) {
+if(confirm("Are you sure?")) {
 document.frmUser.action = "delete_user.php";
 document.frmUser.submit();
 }
