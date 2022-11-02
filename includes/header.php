@@ -125,8 +125,8 @@ $row=pg_fetch_array($result_set);
 				<?php 
         $checkusername=$_SESSION['username'];
         $usertype=pg_query("select \"UserType\" from \"tblloginandregister\" where \"Username\"='$checkusername'");
-$row1=pg_fetch_array($usertype);
-$usertype1=$row1["UserType"];
+        $row1=pg_fetch_array($usertype);
+        $usertype1=$row1["UserType"];
 
         if(!isset($_SESSION['username']) || $_SESSION['username']==$username ||$usertype1=="Normal"){
 				
@@ -134,7 +134,7 @@ $usertype1=$row1["UserType"];
 				else{
 					?>
 					<li class="dropdown"><a href="/HydrometV2/stations.php#stationtypes" class="head_a"><img src="/HydrometV2/assets/images/admin.png" height="20">Go To admin</a>
-</li>
+        </li>
 <?php
 				}
 ?>						

@@ -1,10 +1,6 @@
-
-
-
 <script src="http://dygraphs.com/1.0.1/dygraph-combined.js"></script>
  
 <script src="http://cavorite.com/labs/js/dygraphs-export/dygraph-extra.js"></script>
-
 
 
     <link href="Styles/FontStyle.css" rel="stylesheet" type="text/css" />
@@ -14,8 +10,6 @@
     <script src="Scripts/jstree.min.js" type="text/javascript"></script>
     
    <!-- =====================Graph ===============================-->
-
-
 
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script> 
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
@@ -28,11 +22,6 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous" />
     <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-
- 
-
-
-
 
 <?php
 ini_set('max_execution_time', 0); 

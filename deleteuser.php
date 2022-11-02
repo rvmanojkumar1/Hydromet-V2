@@ -19,7 +19,7 @@
 	                <div style="height:100%">
                     <?php
                         include_once 'database.php';
-                        $result = pg_query("SELECT \"Username\",\"Email\",\"enabled\" FROM \"tblloginandregister\" where \"approved\"='1' ORDER BY \"Username\" ASC ");
+                        $result = pg_query("SELECT \"Username\",\"Email\",\"enabled\" FROM \"tblloginandregister\" where \"approved\"='1' and \"enabled\"='true' ORDER BY \"Username\" ASC ");
                         ?>
 
                         <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
