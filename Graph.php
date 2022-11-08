@@ -1,57 +1,48 @@
 
 <!DOCTYPE php>
-
 <head>
-							<?php
-								include("includes/link.php");
-							?>
+  <?php
+    include("includes/link.php");
+  ?>
 </head>
 
 <body class="cnt-home" >  
-							<?php
-								include("includes/header.php");
-							?>
+  <?php
+    include("includes/header.php");
+  ?>
    	
 	<div class="body-content outer-top-xs" id="top-banner-and-menu">
   <div class="container-fluid">
-    <div class="row"> 
-
-     <div class="col-xs-12 col-sm-12 col-md-12 sidebar"> 
-	 <!-- <div style="height:100%"> -->
+    <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 sidebar"> 
+	  <!-- <div style="height:100%"> -->
     <div>
 
 	<?php
+  include_once 'database.php';
+  ini_set('max_execution_time', 0); 
+  ini_set('memory_limit', '-1');
 
-include_once 'database.php';
-ini_set('max_execution_time', 0); 
- ini_set('memory_limit', '-1');
+  if(isset($_GET['select1']))
+  {
+    $var1=$_GET['select1'];
+    $_SESSION['SName']=$var1;
 
-if(isset($_GET['select1']))
-{
-	$var1=$_GET['select1'];
-	$_SESSION['SName']=$var1;
-
-}
-?>
-
-
+  }
+  ?>
+<link rel="stylesheet" href="/HydrometV2/graphstyle.css">
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script> 
 <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js" type="text/javascript"></script> 
- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-
-
- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous" />
-
-           <link rel="stylesheet" href="assets/jquery-ui.css">
-
-    <script type="text/javascript" src="assets/jquery.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous" />
+<link rel="stylesheet" href="assets/jquery-ui.css">
+<script type="text/javascript" src="assets/jquery.js"></script>
 <script type="text/javascript" src="assets/jquery-ui.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.js"></script>
 
- <script type="text/javascript">
-// $(function() 
+
+<!-- // $(function() 
 // {
 //  $( "#Sname" ).autocomplete({
 //   source: 'autocompelete.php',
@@ -64,9 +55,9 @@ if(isset($_GET['select1']))
 //     $('[type="date"]').datepicker();
 // }
   
-// });
-</script>
- <script type="text/javascript">
+// }); -->
+
+<script type="text/javascript">
 $(function() 
 {
  $( "#Sname" ).autocomplete({
@@ -89,20 +80,22 @@ function getSensors()
 var stn=document.getElementById('Sname').value;
 
 var selected_sensor=<?php if (isset($_GET["PARAMS"])){ echo json_encode(trim($_GET["PARAMS"]));}else { echo json_encode(""); } ?>;
-  var xhttp2 = new XMLHttpRequest();
-  xhttp2.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-var data = this.responseText;
-var json=JSON.parse(data);
-var list=[];
-for(var x in json)
+var xhttp2 = new XMLHttpRequest();
+xhttp2.onreadystatechange = function()
 {
-  list.push(json[x]);
+  if (this.readyState == 4 && this.status == 200)
+  {
+    var data = this.responseText;
+    var json=JSON.parse(data);
+    var list=[];
+    for(var x in json)
+    {
+      list.push(json[x]);
 
-}
-  var e=document.getElementById("SensorList");
-  e.innerHTML="";
-   var x = document.createElement("OPTION");
+    }
+    var e=document.getElementById("SensorList");
+    e.innerHTML="";
+    var x = document.createElement("OPTION");
     x.setAttribute("value", "");
     var t = document.createTextNode("Sensor");
     x.appendChild(t);
@@ -110,142 +103,121 @@ for(var x in json)
     x.selected=true;
     e.appendChild(x);
 
-for (var i = 0; i < list.length; i++) {
-
-
+    for (var i = 0; i < list.length; i++)
+    {
     var x = document.createElement("OPTION");
     x.setAttribute("value", list[i]);
     var t = document.createTextNode(list[i]);
-
     x.appendChild(t);
     if (selected_sensor==list[i]) 
     {
          x.selected=true; 
     }
     e.appendChild(x);
-
-
-
-}
-
     }
-  };
-  xhttp2.open("GET", "getSensorsforGraph.php?station="+stn, true);
-  xhttp2.send();
+  }
+};
+    xhttp2.open("GET", "getSensorsforGraph.php?station="+stn, true);
+    xhttp2.send();
 }
 </script>
- <script type="text/javascript">
-
-
- 	 function PlotGraph_sensor() {
+<script type="text/javascript">
+ 	 function PlotGraph_sensor()
+   {
  	 	//alert('ok');
- if(document.getElementById("Sname").value.trim()=="")
- {
-  alert('Please Search and Select Station!');
-  return;
- }
- else if (document.getElementById("SensorList").value.trim()=="") {
-  alert('Please Select Sensor!');
-  return;
- }
-  else if (document.getElementById("hours").value.trim()!="") {
+      if(document.getElementById("Sname").value.trim()=="")
+      {
+        alert('Please Search and Select Station!');
+        return;
+      }
+      else if (document.getElementById("SensorList").value.trim()=="") {
+        alert('Please Select Sensor!');
+        return;
+      }
+        else if (document.getElementById("hours").value.trim()!="") {
 	//  alert();
   //print "first if cond";
-   var yearFrom;
+            var yearFrom;
             var monthFrom;
             var dayFrom;
             var yearTo;
             var monthTo;
             var dayTo;
-                var hours=document.getElementById("hours").value.trim();
-                var hours2=hours;
-                var sd=0;
-                sd=Math.floor( hours/24);
+            var hours=document.getElementById("hours").value.trim();
+            var hours2=hours;
+            var sd=0;
+            sd=Math.floor( hours/24);
+            hours=hours%24;
 
-                hours=hours%24;
+            var currentdate = new Date();
+            var date = new Date();
+            var last = new Date(date.getTime() - (sd * 24 * 60 * 60 * 1000));
+            yearFrom = last.getFullYear();
+            monthFrom = last.getMonth() + 1;
+            dayFrom = last.getDate();
 
-                var currentdate = new Date();
-             var date = new Date();
-var last = new Date(date.getTime() - (sd * 24 * 60 * 60 * 1000));
-                yearFrom = last.getFullYear();
-                monthFrom = last.getMonth() + 1;
-               dayFrom = last.getDate();
-
-                yearTo = currentdate.getFullYear();
-                monthTo = currentdate.getMonth() + 1;
-                dayTo = currentdate.getDate();
-                    var params = document.getElementById("SensorList").value;
-                     
-                var station = document.getElementById("Sname").value;
+            yearTo = currentdate.getFullYear();
+            monthTo = currentdate.getMonth() + 1;
+            dayTo = currentdate.getDate();
+            var params = document.getElementById("SensorList").value;
+            var station = document.getElementById("Sname").value;
 				
-				if(monthFrom.length==1){monthFrom="0"+monthFrom;}
-				var strdate = yearFrom + "/" + monthFrom + "/" + dayFrom;
-
-                    console.log(strdate);
-
-                    var enddate = yearTo + "/" + monthTo + "/" + dayTo;
-
-                    var start = moment(strdate).format('YYYY-MM-DD');
-
-                    var end = moment(enddate).format('YYYY-MM-DD');
-                    console.log(end);
-                    document.getElementById('EditStartDate').value = start;
-                    document.getElementById('EditEndDate').value = end;
+            if(monthFrom.length==1){monthFrom="0"+monthFrom;}
+            var strdate = yearFrom + "/" + monthFrom + "/" + dayFrom;
+            console.log(strdate);
+            var enddate = yearTo + "/" + monthTo + "/" + dayTo;
+            var start = moment(strdate).format('YYYY-MM-DD');
+            var end = moment(enddate).format('YYYY-MM-DD');
+            console.log(end);
+            document.getElementById('EditStartDate').value = start;
+            document.getElementById('EditEndDate').value = end;
            //   window.location.href= 'Graph.php?FY=' + yearFrom + "&FM=" + monthFrom + "&FD=" + dayFrom + '&TY=' + yearTo + "&TM=" + monthTo + "&TD=" + dayTo + "&PARAMS=" + params+"&hours="+hours+"&station="+station+"&hours2="+hours2;
   
  }
   else if (document.getElementById("EditEndDate").value.trim()==""&&document.getElementById("EditEndDate").value.trim()==""&&document.getElementById("hours").value.trim()=="") {
   //print  "Second if cond";
-                var yearFrom;
-                var monthFrom;
-                var dayFrom;
-                var yearTo;
-                var monthTo;
-                var dayTo;
-                var hours=24;
-                 var hours2=hours;
-                var sd=0;
-                sd=Math.floor( hours/24);
+              var yearFrom;
+              var monthFrom;
+              var dayFrom;
+              var yearTo;
+              var monthTo;
+              var dayTo;
+              var hours=24;
+              var hours2=hours;
+              var sd=0;
+              sd=Math.floor( hours/24);
 
-                hours=hours%24;
+              hours=hours%24;
 
-                var currentdate = new Date();
+              var currentdate = new Date();
 
-               var date = new Date();
-var last = new Date(date.getTime() - (sd * 24 * 60 * 60 * 1000));
-                yearFrom = last.getFullYear();
-                monthFrom = last.getMonth() + 1;
-               dayFrom = last.getDate();
+              var date = new Date();
+              var last = new Date(date.getTime() - (sd * 24 * 60 * 60 * 1000));
+              yearFrom = last.getFullYear();
+              monthFrom = last.getMonth() + 1;
+              dayFrom = last.getDate();
 
-                yearTo = currentdate.getFullYear();
-                monthTo = currentdate.getMonth() + 1;
-                dayTo = currentdate.getDate();
-                    var params = document.getElementById("SensorList").value;
-     
-                var station = document.getElementById("Sname").value;
+              yearTo = currentdate.getFullYear();
+              monthTo = currentdate.getMonth() + 1;
+              dayTo = currentdate.getDate();
+              var params = document.getElementById("SensorList").value;
+              var station = document.getElementById("Sname").value;
 				
-				if(monthFrom.length==1){monthFrom="0"+monthFrom;}
+			if(monthFrom.length==1){monthFrom="0"+monthFrom;}
         
-          if(monthTo.length==1){monthTo="0"+monthTo;}
+      if(monthTo.length==1){monthTo="0"+monthTo;}
 
-
-        
-       if(hours==0){hours=24;}
-                $("#hours").val(hours);
+      if(hours==0){hours=24;}
+        $("#hours").val(hours);
                
-        
-				var strdate = yearFrom + "/" + monthFrom + "/" + dayFrom;
-
-                    console.log(strdate);
-
-                    var enddate = yearTo + "/" + monthTo + "/" + dayTo;
-
-                    var start = moment(strdate).format('YYYY-MM-DD');
-
-                    var end = moment(enddate).format('YYYY-MM-DD');
-                    console.log(end);
-                    document.getElementById('EditStartDate').value = start;
-                    document.getElementById('EditEndDate').value = end;
+        var strdate = yearFrom + "/" + monthFrom + "/" + dayFrom;
+          console.log(strdate);
+        var enddate = yearTo + "/" + monthTo + "/" + dayTo;
+        var start = moment(strdate).format('YYYY-MM-DD');
+        var end = moment(enddate).format('YYYY-MM-DD');
+          console.log(end);
+          document.getElementById('EditStartDate').value = start;
+          document.getElementById('EditEndDate').value = end;
             //  window.location.href= 'Graph.php?FY=' + yearFrom + "&FM=" + monthFrom + "&FD=" + dayFrom + '&TY=' + yearTo + "&TM=" + monthTo + "&TD=" + dayTo + "&PARAMS=" + params+"&station="+station+"&hours2="+hours2+"&hours="+hours;
 
 
@@ -302,35 +274,24 @@ var last = new Date(date.getTime() - (sd * 24 * 60 * 60 * 1000));
           var station = document.getElementById("Sname").value;
 
           if(monthFrom.length==1){monthFrom="0"+monthFrom;}
-			
+			    
+          if(monthTo.length==1){monthTo="0"+monthTo;}
 				
-				if(monthTo.length==1){monthTo="0"+monthTo;}
-				
-				
-
-
-        var strdate = yearFrom + "/" + monthFrom + "/" + dayFrom;
-
-                    console.log(strdate);
-
-                    var enddate = yearTo + "/" + monthTo + "/" + dayTo;
-
-                    var start = moment(strdate).format('YYYY-MM-DD');
-
-                    var end = moment(enddate).format('YYYY-MM-DD');
-                    console.log(end);
-                    document.getElementById('EditStartDate').value = start;
-                    document.getElementById('EditEndDate').value = end;
-          
+				  var strdate = yearFrom + "/" + monthFrom + "/" + dayFrom;
+            console.log(strdate);
+          var enddate = yearTo + "/" + monthTo + "/" + dayTo;
+          var start = moment(strdate).format('YYYY-MM-DD');
+          var end = moment(enddate).format('YYYY-MM-DD');
+            console.log(end);
+            document.getElementById('EditStartDate').value = start;
+            document.getElementById('EditEndDate').value = end;
              // window.location.href= 'Graph.php?FY=' + yearFrom + "&FM=" + monthFrom + "&FD=" + dayFrom + '&TY=' + yearTo + "&TM=" + monthTo + "&TD=" + dayTo + "&PARAMS=" + params+"&station="+station;
              }
            }
-                </script>  
+</script>  
 
-  <script type="text/javascript">
-
-
- 	function PlotGraph() 
+<script type="text/javascript">
+function PlotGraph() 
   {
  	  //alert('ok');
     if(document.getElementById("Sname").value.trim()=="")
@@ -412,17 +373,16 @@ var last = new Date(date.getTime() - (sd * 24 * 60 * 60 * 1000));
       var currentdate = new Date(); 
       var jsFromDate =document.getElementById("EditStartDate").value;
       //EditStartDate.GetDate();
-	  var partsf =jsFromDate.split('-');
-        var jsFromDate = new Date(partsf[0], partsf[1] - 1, partsf[2]);
+	    var partsf =jsFromDate.split('-');
+      var jsFromDate = new Date(partsf[0], partsf[1] - 1, partsf[2]);
 	  
         yearFrom = jsFromDate.getFullYear(); // where getFullYear returns the year (four digits)
         monthFrom = jsFromDate.getMonth()+1; // where getMonth returns the month (from 0-11)
         dayFrom = jsFromDate.getDate();   // where getDate returns the day of the month (from 1-31)
       
       var jsToDate = document.getElementById("EditEndDate").value;
-	  var partst =jsToDate.split('-');
-        var jsToDate = new Date(partst[0], partst[1] - 1, partst[2]);
-      
+	    var partst =jsToDate.split('-');
+      var jsToDate = new Date(partst[0], partst[1] - 1, partst[2]);
       
         yearTo = jsToDate.getFullYear(); // where getFullYear returns the year (four digits)
         monthTo = jsToDate.getMonth()+1; // where getMonth returns the month (from 0-11)
@@ -434,55 +394,24 @@ var last = new Date(date.getTime() - (sd * 24 * 60 * 60 * 1000));
       window.location.href= 'Graph.php?FY=' + yearFrom + "&FM=" + monthFrom + "&FD=" + dayFrom + '&TY=' + yearTo + "&TM=" + monthTo + "&TD=" + dayTo + "&PARAMS=" + params+ "&hours=" + hours+"&station="+station+"&hours2="+hoursdiff;
     }
   }
-                </script>
-               
-   <style type="text/css">
-   	.pad
-   	{
-   		padding: 5px;
-   	}
-   	.span1
-   	{
-   		color: red;
-   		
-
-   	}
-   	hr {
-    display: block;
-    height: 1px;
-    border: 0;
-    border-top: 1px solid #ccc;
-    margin: 1em 0;
-    padding: 0;
-}
-@media (max-width: 480px) { 
-
- .td-inline-element{
-   min-width:100%;
-  
-   display:inline-block !important;
- }
- .mobilemargintop{
-  margin-top:10px;
-}
-}
-   </style>
-   <script type="text/javascript">
-   	function GetData()
-   	{
-   	var stn = document.getElementById("Sname").value; 
-
-if (stn=="") {
-alert('Please Search and Select Station!');
-}
- else if(document.getElementById("Sname").value.trim()=="")
- {
+</script>
+<script type="text/javascript">
+function GetData()
+{
+var stn = document.getElementById("Sname").value;
+if (stn=="")
+{
   alert('Please Search and Select Station!');
- }
-  else{
-         window.location.href='graphData.php?Sname='+stn;
-         }
-     }
+}
+  else if(document.getElementById("Sname").value.trim()=="")
+  {
+    alert('Please Search and Select Station!');
+  }
+  else
+  {
+    window.location.href='graphData.php?Sname='+stn;
+  }
+}
 
    function exportToCSV()
      {
@@ -510,11 +439,11 @@ alert('Please Search and Select Station!');
                 hours=hours%24;
 
                 var currentdate = new Date();
- var date = new Date();
-var last = new Date(date.getTime() - (sd * 24 * 60 * 60 * 1000));
+                var date = new Date();
+                var last = new Date(date.getTime() - (sd * 24 * 60 * 60 * 1000));
                 yearFrom = last.getFullYear();
                 monthFrom = last.getMonth() + 1;
-               dayFrom = last.getDate();
+                dayFrom = last.getDate();
 
                 yearTo = currentdate.getFullYear();
                 monthTo = currentdate.getMonth() + 1;
@@ -542,11 +471,11 @@ var last = new Date(date.getTime() - (sd * 24 * 60 * 60 * 1000));
                 hours=hours%24;
 
                 var currentdate = new Date();
- var date = new Date();
-var last = new Date(date.getTime() - (sd * 24 * 60 * 60 * 1000));
+                var date = new Date();
+                var last = new Date(date.getTime() - (sd * 24 * 60 * 60 * 1000));
                 yearFrom = last.getFullYear();
                 monthFrom = last.getMonth() + 1;
-               dayFrom = last.getDate();
+                dayFrom = last.getDate();
 
                 yearTo = currentdate.getFullYear();
                 monthTo = currentdate.getMonth() + 1;
@@ -612,32 +541,35 @@ var last = new Date(date.getTime() - (sd * 24 * 60 * 60 * 1000));
               window.location.href= 'Graph.php?FY=' + yearFrom + "&FM=" + monthFrom + "&FD=" + dayFrom + '&TY=' + yearTo + "&TM=" + monthTo + "&TD=" + dayTo + "&PARAMS=" + params+ "&hours=" + hours+"&station="+station+"&csv=yes";
              }
            }
-   </script>
-   <script type="text/javascript">
+</script>
+<script type="text/javascript">
      function resetb()
      {
-
       document.getElementById('EditStartDate').value="";
-       document.getElementById('EditEndDate').value="";
-        document.getElementById('hours').value="";
+      document.getElementById('EditEndDate').value="";
+      document.getElementById('hours').value="";
   
      }
 
-   </script>
+</script>
 <script>
-function val(selectObject) {
+function val(selectObject)
+{
 d = selectObject.value;
-if (d.trim()=="multiple") {
+if (d.trim()=="multiple")
+{
   window.location.href='GraphMultiple2.php';
 }
-
-if (d.trim()=="multiple2") {
+if (d.trim()=="multiple2")
+{
   window.location.href='SingleGraphMultiSensor.php';
 }
-if (d.trim()=="single") {
+if (d.trim()=="single")
+{
   window.location.href='Graph.php';
 }
-if (d.trim()=="multiple3") {
+if (d.trim()=="multiple3")
+{
   window.location.href='GraphMultiple.php';
 }
 }
@@ -648,14 +580,9 @@ function emptyHours()
 }
 
 </script>
-
-
-   <form class=" mobilemargintop">
-
-
-
+<form class=" mobilemargintop">
 <center >
-  <table style="width: ;">
+  <table>
  
  <tr>
  <td style="padding-left: 3px" class="td-inline-element"> <div class="form-group">  <select  id="selectgraph" onchange="val(this)" class="form-control">
@@ -663,38 +590,32 @@ function emptyHours()
      <option value="multiple3">Single Station / Multiple Sensor</option>
 
     <!-- <option value="multiple">Multiple Station/Sensor</option>-->
-<option value="multiple2">Multiple Station/Sensor</option>
+ <option value="multiple2">Multiple Station/Sensor</option>
 
-  </select></div>
+ </select></div>
   </td>
 
- <td class="pad td-inline-element"> <div class="form-group"> <input placeholder="Search Station" type="text" id="Sname" name="StationName" class="form-control" onchange="getSensors()" required  value='<?php 
+  <td class="pad td-inline-element"> <div class="form-group"> <input placeholder="Search Station" type="text" id="Sname" name="StationName" class="form-control" onchange="getSensors()" required  value='<?php 
  if (isset($_GET['station'])) 
  {
-echo $_GET['station']; 
-$_SESSION['SName']=$_GET['station']; 
-}
-
+  echo $_GET['station']; 
+  $_SESSION['SName']=$_GET['station']; 
+  }
 
  ?>'> </div>
 
  </td>
 
-   <td class="pad td-inline-element"> <div class="form-group"> <select style="width:  100%" name="SensorList" id="SensorList" onchange="PlotGraph_sensor()" class="form-control" required >
-<option value="" disabled selected>Sensor</option>
-   
-     
-   </select>
-
+  <td class="pad td-inline-element"> <div class="form-group">
+  <select style="width:  100%" name="SensorList" id="SensorList" onchange="PlotGraph_sensor()" class="form-control" required >
+    <option value="" disabled selected>Sensor</option>
+  </select>
    </div>
    </td>
- 
- 
 
-  
    <td style="padding-left: 3px" class="td-inline-element"> <div class="form-group">
    <input placeholder="Hours" type="number" id="hours" style="width: 90%" name="hours" class="form-control" value="<?php if(isset($_GET['hours2'])) {
- echo $_GET['hours2'];
+    echo $_GET['hours2'];
    } ?>">
 
     </div></td>
@@ -703,11 +624,12 @@ $_SESSION['SName']=$_GET['station'];
    
      $da= strtotime( $_GET['FY'].'/'.$_GET['FM'].'/'.$_GET['FD']);
  
-   } ?>
-   <?php if (isset($_GET['TY'])&&isset($_GET['TM'])&&isset($_GET['TD'])) {
+   }
+?>
+   <?php if (isset($_GET['TY'])&&isset($_GET['TM'])&&isset($_GET['TD']))
+   {
 
      $da2= strtotime( $_GET['TY'].'/'.$_GET['TM'].'/'.$_GET['TD']);
- 
    } 
 
 //echo date('Y-n-j')."  AND  ".$da;
@@ -724,41 +646,29 @@ $_SESSION['SName']=$_GET['station'];
    <div class="form-group"> <a   class="btn btn-sm btn-primary" name="btnExportToCvs" href="javascript:window.location.href='exportcsv.php'">Export</a></div>
    </td>
 
-
-
  </tr>
 </table>
- </center>
-  </form>
-
+</center>
+</form>
     <script type="text/javascript">
     getSensors();
-  </script>
+</script>
 <?php
 include_once 'GraphJSon.php';
 ?>
 <!--<input type="button" value="Next" onclick="next('<?php echo $start; ?>','<?php echo $end; ?>')">
 	-->
-
-	
-	
 	</div>
 	</div>
 	</div>
 	</div>
 	</div>
-	
-	
-	
-
-							<?php
-							//	include("includes/footer.php");
-							?>
-							<?php
-							//	include("includes/link2.php");
-							?>
-
-
+<?php
+  //	include("includes/footer.php");
+?>
+<?php
+  //	include("includes/link2.php");
+?>
 </body>
 </html>
 

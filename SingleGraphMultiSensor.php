@@ -27,20 +27,17 @@ if(isset($_POST['chekedstn']))
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script> 
 <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js" type="text/javascript"></script> 
- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-
-
- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous" />
-
-           <link rel="stylesheet" href="assets/jquery-ui.css">
-
-    <script type="text/javascript" src="assets/jquery.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous" />
+<link rel="stylesheet" href="assets/jquery-ui.css">
+<link rel="stylesheet" href="/HydrometV2/graphstyle.css">
+<script type="text/javascript" src="assets/jquery.js"></script>
 <script type="text/javascript" src="assets/jquery-ui.js"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.js"></script>
-   <script type="text/javascript">
+  <script type="text/javascript">
 
 function UpdateDates() {
 
@@ -49,8 +46,6 @@ function UpdateDates() {
     selected.each(function() {
         params += $(this).val() + ";";
     });
-
-
 
     // alert('ok');
 
@@ -124,7 +119,7 @@ function UpdateDates() {
 }
  	 function PlotGraph() {
 
-            var selected = $("#SensorList option:selected");
+        var selected = $("#SensorList option:selected");
         var params = "";
         selected.each(function () {
             params +=$(this).val() + ";";
@@ -147,7 +142,7 @@ function UpdateDates() {
             var yearTo;
             var monthTo;
             var dayTo;
-              var currentdate = new Date();
+            var currentdate = new Date();
  
 
                 var hours2=hours;
@@ -156,7 +151,7 @@ function UpdateDates() {
                 hours=hours%24;
               
                var date = new Date();
-var last = new Date(date.getTime() - (sd * 24 * 60 * 60 * 1000));
+               var last = new Date(date.getTime() - (sd * 24 * 60 * 60 * 1000));
                 yearFrom = last.getFullYear();
                 monthFrom = last.getMonth() + 1;
                dayFrom = last.getDate();
@@ -165,10 +160,10 @@ var last = new Date(date.getTime() - (sd * 24 * 60 * 60 * 1000));
                 monthTo = currentdate.getMonth() + 1;
                 dayTo = currentdate.getDate();
                    // var params = document.getElementById("SensorList").value;
-       var params = "";
-        selected.each(function() {
-            params += $(this).val() + ";";
-        });
+                var params = "";
+                selected.each(function() {
+                params += $(this).val() + ";";
+                  });
            
                 var station = document.getElementById("Sname").value;
               window.location.href= 'SingleGraphMultiSensor.php?FY=' + yearFrom + "&FM=" + monthFrom + "&FD=" + dayFrom + '&TY=' + yearTo + "&TM=" + monthTo + "&TD=" + dayTo + "&PARAMS=" + params+"&hours="+hours+"&station="+station+"&hours2="+hours2;
@@ -268,38 +263,6 @@ var last = new Date(date.getTime() - (sd * 24 * 60 * 60 * 1000));
              }
            }
                 </script>
-               
-   <style type="text/css">
-   	.pad
-   	{
-   		padding: 5px;
-   	}
-   	.span1
-   	{
-   		color: red;
-   		
-
-   	}
-   	hr {
-    display: block;
-    height: 1px;
-    border: 0;
-    border-top: 1px solid #ccc;
-    margin: 1em 0;
-    padding: 0;
-}
-@media (max-width: 480px) { 
-
-td{
-   min-width:100%;
-  
-   display:inline-block !important;
- }
- .mobilemargintop{
-  margin-top:10px;
-}
-}
-   </style>
 
    <script type="text/javascript">
    	function GetData()

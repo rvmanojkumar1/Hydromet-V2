@@ -1,23 +1,18 @@
-<script src="http://dygraphs.com/1.0.1/dygraph-combined.js"></script>
- 
+<script src="http://dygraphs.com/1.0.1/dygraph-combined.js"></script> 
 <script src="http://cavorite.com/labs/js/dygraphs-export/dygraph-extra.js"></script>
-
-
-    <link href="Styles/FontStyle.css" rel="stylesheet" type="text/css" />
-    <!--<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" />-->
-    <script type="text/javascript" src="//code.jquery.com/jquery-1.10.2.js"></script>
-    <script type="text/javascript" src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-    <script src="Scripts/jstree.min.js" type="text/javascript"></script>
+<link href="Styles/FontStyle.css" rel="stylesheet" type="text/css" />
+<!--<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" />-->
+<script type="text/javascript" src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script type="text/javascript" src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<script src="Scripts/jstree.min.js" type="text/javascript"></script>
     
    <!-- =====================Graph ===============================-->
 
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script> 
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-        <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
     <script src="Scripts/jquery.canvasjs.min.js"></script>
-   
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" />
-
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous" />
     <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
@@ -325,12 +320,8 @@ if (count($min_max_list)>1) {
   # code...
 $max=0;
 
-
 foreach ($min_max_list as $key => $value) 
 {
-
-
-
  if ($max<$value) 
  {
    $max=$value;
@@ -349,7 +340,6 @@ $yaxis_list[]=$key;
  }
 }
 }
-
 
 ?>
 
@@ -392,11 +382,11 @@ $.ajax({
 data=<?php echo json_encode(str_replace('"', '', $temp));?>;
 
 yaxis_list=<?php echo json_encode($yaxis_list);?>;
-                  min_max_list=<?php echo json_encode($min_max_list);?>;
-            //alert(min_max_list[0]);
+min_max_list=<?php echo json_encode($min_max_list);?>;
+  //alert(min_max_list[0]);
 <?php if(count($min_max_list)>0) { ?>;
 
-  document.getElementById('myGraph').style.display="";
+document.getElementById('myGraph').style.display="";
 <?php }?>
 
  var op= {
@@ -505,25 +495,17 @@ document.getElementById('downloadgraph1').href=img2.src;
 });
 }catch(exxxx)
 {}
-
-
-              g.dyOptions(labelsUTC = TRUE);
-
-               }catch(ex1) {}
+  g.dyOptions(labelsUTC = TRUE);
+    }catch(ex1) {}
 
 try{
-
-
-
- var g2=  new Dygraph(document.getElementById(graphdiv2),
+var g2=  new Dygraph(document.getElementById(graphdiv2),
 ress , op
            );
 
               g2.dyOptions(labelsUTC = TRUE); }catch(ex1) {
               }
-    g2.resize(1400, 600);
-
-             
+    g2.resize(1400, 600);         
     }
 
   catch(ex)
@@ -533,7 +515,6 @@ ress , op
     }
     
      }    
-
 
 </script>
 <style type="text/css">

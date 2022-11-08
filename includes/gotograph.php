@@ -153,7 +153,7 @@ for ($i=0; $i <count($paramsshef); $i++) {
 
 if (trim($paramsshef[$i])!="") {
 	
-    $result_set=  pg_query("SELECT \"HydroMetParamsTypeId\" FROM \"tblHydroMetParamsType\" where 
+    $result_set=  pg_query("SELECT \"HydroMetTypeId\" FROM \"tblHydroMetParamsType\" where 
             \"HydroMetShefCode\" = '$paramsshef[$i]'");
     //the result from selecting HydroMetParamsTypeId from the table "tblHydroMetParamsType" matching the condition "HydroMetShefCode" is sent to variable $result_set
 
